@@ -1,0 +1,26 @@
+select 'onmode -z '||sid||';' Matalo,username, sid bloquea
+,waiter espera,dbsname,tabname--%
+from
+sysmaster:syslocks, sysmaster:syssessions
+where
+sysmaster:syssessions.sid = sysmaster:syslocks.owner
+and sysmaster:syslocks.waiter > 0
+
+select 'onmode -z '||sid||';' Matalo,username, sid bloquea
+,waiter espera,dbsname,tabname--%
+from
+sysmaster:syslocks, sysmaster:syssessions
+where
+sysmaster:syssessions.sid = sysmaster:syslocks.owner
+and sysmaster:syslocks.waiter > 0
++
+
+
+i1_wbstblintfclcoa
+
+
+sp_getrecibo
+
+let nsequence_aux=dbinfo("sqlca.sqlerrd1");
+
+481742

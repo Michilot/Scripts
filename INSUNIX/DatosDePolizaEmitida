@@ -1,0 +1,303 @@
+   execute procedure anul_polcertrec_nc(66,10582433,0,1,today,796159907,9999,1)
+       
+      IfxCommand cmd = new IfxCommand("anul_polcertrec_nc", conexion);
+                    cmd.Parameters.Add("p_branch", IfxType.SmallInt).Value = intbranch;
+                    cmd.Parameters.Add("p_policy", IfxType.Integer).Value = intPoliza;
+                    cmd.Parameters.Add("p_certif", IfxType.Integer).Value = intCertif;
+                    cmd.Parameters.Add("p_nullcode", IfxType.SmallInt).Value = nullCode;
+                    cmd.Parameters.Add("p_nulldate", IfxType.Date).Value = nullDate;
+                    cmd.Parameters.Add("p_receipt", IfxType.Integer).Value = receipt;
+                    cmd.Parameters.Add("p_usercode", IfxType.Integer).Value = UserCode;
+                    cmd.Parameters.Add("p_nullcodp", IfxType.SmallInt).Value = NullCodP; 
+           
+       select * from tblapeseg where branch=66 and policy = 10570787 and lastmoveme = 1
+       
+        10447217 - 10447213 - 10447216
+       
+       
+          select * from policy
+        where usercomp = 1 and company = 1 and certype = "2"
+          and branch = 66 and policy = 10570787
+          and certif   = 0
+           
+      execute procedure sp_getrecibo(10570787, 0, 10)
+
+
+      select po.branch,po.policy,tb6.descript,pr.receipt,po.premium,po.status_pol,po.effecdate,po.expirdat,po.nullcode,po.nulldate,
+             au.regist,au.statusva,au.vehcode,au.vehgroup,au.vehclass,pr.status_pre,pm.premium,
+             pm.transac,pm.type,pm.usercode,pm.statdate,pm.docnumbe,pm.receipt_fa
+        from policy po 
+  inner join auto_peru au 
+          on po.usercomp = au.usercomp and po.company = au.company and po.certype = au.certype 
+         and po.branch   = au.branch   and po.policy  = au.policy  and au.certif = 0
+ inner join premium pr 
+          on pr.usercomp = au.usercomp and pr.company = au.company and pr.certype = au.certype 
+         and pr.branch   = au.branch   and pr.policy  = au.policy
+ inner join premium_mo pm 
+          on pm.usercomp = au.usercomp and pm.company = au.company and pm.receipt = pr.receipt   
+ inner join table6 tb6
+          on tb6.codigint = pm.type            
+       where po.usercomp = 1 
+       and po.company = 1 
+       and po.certype = '2' 
+       and po.branch  = 66 
+       and po.policy  = 10582433 
+       
+       
+       10582531
+       10507989
+       
+       
+       select * from tblapeseg where branch = 66 and policy = 22377095
+       
+       update tblapeseg set statusori = 3 where branch = 66 and policy = 10507989 and lastmoveme = 1
+       
+       execute procedure sp_getcertificado02(null,null,null,0,null,0,10582459, 0)
+       
+       
+       
+       
+       
+       
+       
+       
+ select *
+    from numerator
+   where usercomp = 1
+     and company  = 1
+     and typenume = 2
+     and (ord_num = 99 or ord_num is null);
+
+  select * from autp_peru 
+  
+  
+  select * from alpha_vida:address where usercomp = 1 and company = 1 and client = 'N0005358345'
+  
+   select * from insured_auto where usercomp = 1 and company = 1 and client = 'N0005358345'
+  
+  select * from address where usercomp = 1 and company = 1 and client = 'N0071814692'  
+  
+  execute procedure sp_getrecibo(10582173,0, 10)
+  
+  select * from tblapeseg where  appcode = 0
+  
+   select *
+       from auto_peru a 
+      where a.usercomp = 1
+       and a.company  = 1
+       and a.certype  = '2'
+       and a.branch   = 66
+       and a.regist   = '9975-FM'
+       and a.nulldate is null
+       
+       
+       
+       and a.expirdat > p_effecdate
+       and a.statusva <> '2'
+       and a.usercomp = r.usercomp
+       and a.company  = r.company
+       and a.certype  = r.certype
+       and a.branch   = r.branch
+       and a.policy   = r.policy
+       and a.certif   = r.certif
+       and r.role     = 2
+       and r.client   = c.code
+       and r.client   = p_codaseg
+       and a.vehgroup = p_vehgroup
+       and u.codigint = a.vehgroup
+
+ create procedure "informix".rea_numerator_nc(l_usercomp smallint,
+                                  l_company  smallint,
+                                  l_typenume smallint,
+                                  l_ord_num  smallint,
+                                  l_usercode smallint)
+
+ execute procedure rea_numerator_nc(1,1,2,99,9999);
+  
+select * from numerator where usercomp = 1 and company = 1 and typenume = 2 and ord_num = 99
+
+update numerator set lastnumb = 15582514 where usercomp = 1 and company = 1 and typenume = 2 and ord_num = 99
+
+10582514
+15582514
+
+ select *
+       from policy a 
+      where a.usercomp = 1
+       and a.company  = 1
+       and a.certype  = '2'
+       and a.branch   = 66
+       and a.policy = 10582531
+       
+    cmd.Parameters.Add("l_usercomp", IfxType.Integer).Value = 1;
+                    cmd.Parameters.Add("l_company", IfxType.Integer).Value = 1;
+                    cmd.Parameters.Add("l_typenume", IfxType.Integer).Value = 2;
+                    cmd.Parameters.Add("l_ord_num", IfxType.Integer).Value = 99;
+                    cmd.Parameters.Add("l_usercode", IfxType.Integer).Value = 1820;
+
+EXECUTE PROCEDURE getindsoatvigente('D7M-145' , today , 1 , ?)
+       --select  * from policy where usercomp = 1 and company = 1 and certype = '2' and branch = 66 and policy = 10523585
+  
+  
+  select count(*)
+       from auto_peru a , roles r , client c , table226 u
+      where a.usercomp = 1
+       and a.company  = 1
+       and a.certype  = '2'
+       and a.branch   = 66
+       and a.regist   = 'D7M-145'
+       and a.nulldate is null
+       and a.expirdat > today
+       and a.statusva <> '2'
+       and a.usercomp = r.usercomp
+       and a.company  = r.company
+       and a.certype  = r.certype
+       and a.branch   = r.branch
+       and a.policy   = r.policy
+       and a.certif   = r.certif
+       and r.role     = 2
+       and r.client   = c.code
+       and r.client   = 'N00000000'
+       and a.vehgroup = 1
+       and u.codigint = a.vehgroup
+
+
+    
+      Placa: D7M-145
+       
+       select  * from auto_peru where usercomp = 1 and company = 1 and certype = '2' and branch = 66 and policy = 10523585
+       
+       update policy set nullcode = 1 where usercomp = 1 and company = 1 and certype = '2' and branch = 66 and policy = 10523585;
+       
+       update policy set nullcode = 1 where usercomp = 1 and company = 1 and certype = '2' and branch = 66 and policy = 10523585;
+       
+       
+        execute procedure anul_polcertrec_nc(66,10522239,0,1,today,796101881,9999,1)
+       
+       select * from receipt_
+       
+       
+
+select ape.branch ramo,ape.policy poliza,ape.effecdate fechaefecto,ape.premium prima,
+ape.formid formulario,ape.intermed intermediario,ape.codecanal ,cli.cliename canal
+from tblapeseg ape inner join cl9ient cli on cli.code = ape.codecanal
+where ape.branch = 66 and ape.policy in (
+10447214, 10422399, 10434732, 10434733, 10434734, 10434737, 10434738, 10434739, 10434746, 10434920, 10435129, 10449579, 10452916
+)
+
+select * from client where code = 'E0000685529'
+
+select ph.rowid, ph.certif,ph.compdate,ph.effecdate,ph.movement,ph.nulldate,ph.transactio,
+ph.type,tp.descript,ph.receipt,ph.usercode     
+from policy_his ph inner join table165 tp on ph.type= tp.codigint
+where ph.usercomp = 1 
+and ph.company = 1 and ph.certype = "2"
+and ph.branch = 66
+and ph.policy = 10509471
+and ph.certif = 0  
+order by 1  
+       
+       
+        select * from auto_peru 
+       where usercomp = 1 
+       and company = 1 
+       and certype = '2' 
+       and branch=66 
+       and policy = 10447217 
+       
+       select receipt,status_pre from premium 
+       where usercomp = 1 
+       and company = 1 
+       and certype = '2' 
+       and branch=66 
+       and policy = 10447217 
+       
+       select * from premium_mo 
+       where usercomp = 1 
+       and company = 1 
+       and receipt = 796094031
+       
+select ph.rowid, ph.certif,ph.compdate,ph.effecdate,ph.movement,ph.nulldate,ph.transactio,
+ph.type,tp.descript,ph.receipt,ph.usercode     
+from policy_his ph inner join table165 tp on ph.type= tp.codigint
+where ph.usercomp = 1 
+and ph.company = 1 and ph.certype = "2"
+and ph.branch = 66
+and ph.policy = 10523585
+and ph.certif = 0  
+order by 1  
+       
+        select * from policy 
+       where usercomp = 1 
+       and company = 1 
+       and certype = '2' 
+       and branch=66 
+       and policy = 1783147
+       
+       select * from equi_vt_inx 
+       where scod_vt  = '00000068153870'
+       
+       select *
+       from roles
+      where usercomp = 1
+        and company  = 1
+        and certype  = "2"
+        and branch   = 66
+        and client   = 'N0068153870'
+
+
+select *
+       from roles
+      where usercomp = 1
+        and company  = 1
+        and certype  = "2"
+        and branch   = 66
+        and client   = 'N0008189263'
+
+
+
+Select certif,receipt,* from certificado 
+where 
+id_vehiculo in (
+Select id_vehiculo from vehiculo 
+where regist LIKE '%AEL-940%')
+
+set isolation to dirty read;
+select first 10 * from tblapeseg where compdate = today order by sequence desc
+
+select * from tblapeseg_eventos where sequence = 1005193
+
+update tblapeseg set where compdate = today and policy = 22216597
+
+
+select *
+from inter_clas_his 
+where intermed = 19577
+
+   select intermed , count(*)
+   from inter_clas_his
+   and   effecdate <= today
+   and   (nulldate is null or nulldate > today )
+   group by intermed;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
